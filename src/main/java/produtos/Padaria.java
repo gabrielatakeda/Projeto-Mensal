@@ -1,4 +1,4 @@
-package produtos;
+package main.java.produtos;
 
 public class Padaria extends Produtos{
     //subclasse de Produtos

@@ -3,11 +3,11 @@ package main.java.cadastros;
 import main.java.produtos.Produtos;
 import java.util.ArrayList;
 
-public class Cadastro {
+public class Cadastro{
     private ArrayList<Produtos> produtos = new ArrayList<>();
 
     public void cadastrarProduto(Produtos produtos){
-        produtos.add(produtos);
+        this.produtos.add(produtos);
         System.out.println("Produto cadastrado com sucesso!");
     }
 
