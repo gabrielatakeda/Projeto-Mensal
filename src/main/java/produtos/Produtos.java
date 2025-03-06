@@ -1,4 +1,4 @@
-package produtos;
+package main.java.produtos;
 
 public abstract class Produtos {
     //a classe Produtos sera abstrata, para ser classe mae das outras categorias.
