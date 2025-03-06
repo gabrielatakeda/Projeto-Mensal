@@ -1,0 +1,222 @@
+Index: src/main/java/produtos/Produtos.java
+===================================================================
+diff --git a/src/main/java/produtos/Produtos.java b/src/main/java/produtos/Produtos.java
+deleted file mode 100644
+--- a/src/main/java/produtos/Produtos.java	(revision 262d24efced4230f0c2d4e8d6c6920e301a08dab)
++++ /dev/null	(revision 262d24efced4230f0c2d4e8d6c6920e301a08dab)
+@@ -1,25 +0,0 @@
+-package produtos;
+-
+-public abstract class Produtos {
+-    //a classe Produtos sera abstrata, para ser classe mae das outras categorias.
+-
+-    //variaveis com uso protected para que seja acessado somente pelas classes filhas e nada mais
+-    protected int id;
+-    protected String nomeProduto;
+-    protected int quantidade;
+-    protected double precoCompra;
+-
+-    //construtor default
+-    public Produtos(){
+-
+-    }
+-
+-    public Produtos(int id, String nomeProduto, int quantidade, double precoCompra){
+-        this.id = id;
+-        this.nomeProduto = nomeProduto;
+-        this.quantidade = quantidade;
+-        this.precoCompra = precoCompra;
+-    }
+-
+-    public abstract String getCategoria();
+-}
+Index: src/main/java/interfaces/ICadastro.java
+===================================================================
+diff --git a/src/main/java/interfaces/ICadastro.java b/src/main/java/interfaces/ICadastro.java
+new file mode 100644
+--- /dev/null	(date 1741268625863)
++++ b/src/main/java/interfaces/ICadastro.java	(date 1741268625863)
+@@ -0,0 +1,17 @@
++package interfaces;
++
++import produtos.Produto;
++
++public interface ICadastro {
++    //interface que obrigara a classe de cadastro a executar esses metodos
++
++
++    //metodo para adicionar um produto para a lista
++    void addProduto(Produto produto);
++
++    //metodo para remover um produto da lista, pelo seu id.
++    void rmvProduto(String id);
++
++    //metodo para printar todos produtos no console
++    void print();
++}
+Index: src/main/java/cadastros/Cadastro.java
+===================================================================
+diff --git a/src/main/java/cadastros/Cadastro.java b/src/main/java/cadastros/Cadastro.java
+new file mode 100644
+--- /dev/null	(date 1741269569783)
++++ b/src/main/java/cadastros/Cadastro.java	(date 1741269569783)
+@@ -0,0 +1,26 @@
++package cadastros;
++
++import interfaces.ICadastro;
++import produtos.Produto;
++
++import java.util.ArrayList;
++import java.util.List;
++
++public class Cadastro implements ICadastro {
++    private List<Produto> produtos = new ArrayList<>();
++
++    @Override
++    public void addProduto(Produto produto) {
++
++    }
++
++    @Override
++    public void rmvProduto(String id) {
++
++    }
++
++    @Override
++    public void print() {
++
++    }
++}
+Index: .idea/encodings.xml
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1741221033202)
++++ b/.idea/encodings.xml	(date 1741221033202)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/git_toolbox_blame.xml
+===================================================================
+diff --git a/.idea/git_toolbox_blame.xml b/.idea/git_toolbox_blame.xml
+new file mode 100644
+--- /dev/null	(date 1741224017792)
++++ b/.idea/git_toolbox_blame.xml	(date 1741224017792)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GitToolBoxBlameSettings">
++    <option name="version" value="2" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/git_toolbox_prj.xml
+===================================================================
+diff --git a/.idea/git_toolbox_prj.xml b/.idea/git_toolbox_prj.xml
+new file mode 100644
+--- /dev/null	(date 1741224017804)
++++ b/.idea/git_toolbox_prj.xml	(date 1741224017804)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GitToolBoxProjectSettings">
++    <option name="commitMessageIssueKeyValidationOverride">
++      <BoolValueOverride>
++        <option name="enabled" value="true" />
++      </BoolValueOverride>
++    </option>
++    <option name="commitMessageValidationEnabledOverride">
++      <BoolValueOverride>
++        <option name="enabled" value="true" />
++      </BoolValueOverride>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/produtos/Produto.java
+===================================================================
+diff --git a/src/main/java/produtos/Produto.java b/src/main/java/produtos/Produto.java
+new file mode 100644
+--- /dev/null	(date 1741267103699)
++++ b/src/main/java/produtos/Produto.java	(date 1741267103699)
+@@ -0,0 +1,74 @@
++package produtos;
++
++public abstract class Produto {
++    //a classe Produtos sera abstrata, para ser classe mae das outras categorias.
++
++    //variaveis com uso protected para que seja acessado somente pelas classes filhas e nada mais
++    protected int id;
++    protected String nome;
++    protected int quantidade;
++    protected double precoCompra;
++    protected double precoVenda;
++
++    //construtor default
++    public Produto(){
++    }
++
++    //construtor parametrizado
++    public Produto(int id, String nome, int quantidade, double precoCompra, double margemLucro){
++        this.id = id;
++        this.nome = nome;
++        this.quantidade = quantidade;
++        this.precoCompra = precoCompra;
++        this.precoVenda = calcularPrecoVenda(margemLucro);
++    }
++
++    //classe abstrata para pegar o nome das demais categorias que herdaram esse metodo
++    public abstract String getCategoria();
++
++    //metodo usado para calcular o preco de venda de cada produto
++    public double calcularPrecoVenda(double margemLucro){
++        return precoCompra + (precoCompra * margemLucro / 100);
++    }
++
++    //getters e setters dos produtos
++    public int getId() {
++        return id;
++    }
++
++    public String getNome() {
++        return nome;
++    }
++
++    public int getQuantidade() {
++        return quantidade;
++    }
++
++    public double getPrecoCompra() {
++        return precoCompra;
++    }
++
++    public double getPrecoVenda() {
++        return precoVenda;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public void setNome(String nome) {
++        this.nome = nome;
++    }
++
++    public void setQuantidade(int quantidade) {
++        this.quantidade = quantidade;
++    }
++
++    public void setPrecoCompra(double precoCompra) {
++        this.precoCompra = precoCompra;
++    }
++
++    public void setPrecoVenda(double precoVenda) {
++        this.precoVenda = precoVenda;
++    }
++}

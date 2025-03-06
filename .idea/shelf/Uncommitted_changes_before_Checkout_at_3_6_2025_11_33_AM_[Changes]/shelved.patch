@@ -1,0 +1,106 @@
+Index: src/main/java/produtos/Padaria.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package produtos;\r\n\r\npublic class Padaria extends Produtos{\r\n    //subclasse de Produtos\r\n\r\n\r\n\r\n\r\n\r\n    //funcao polimorfica herdada da classe mae Produtos\r\n    @Override\r\n    public String getCategoria() {\r\n        return \"Padaria\";\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/produtos/Padaria.java b/src/main/java/produtos/Padaria.java
+--- a/src/main/java/produtos/Padaria.java	(revision 262d24efced4230f0c2d4e8d6c6920e301a08dab)
++++ b/src/main/java/produtos/Padaria.java	(date 1741267103636)
+@@ -1,11 +1,10 @@
+ package produtos;
+ 
+-public class Padaria extends Produtos{
++public class Padaria extends Produto {
+     //subclasse de Produtos
+-
+-
+-
+-
++    public Padaria(int id, String nome, int quantidade, double precoCompra, double margemLucro){
++        super(id, nome, quantidade, precoCompra, margemLucro);
++    }
+ 
+     //funcao polimorfica herdada da classe mae Produtos
+     @Override
+Index: src/main/java/produtos/Limpeza.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package produtos;\r\n\r\npublic class Limpeza extends Produtos {\r\n    //subclasse de Produtos\r\n\r\n\r\n\r\n    //funcao polimorfica herdada da classe mae Produtos\r\n    @Override\r\n    public String getCategoria() {\r\n        return \"Limpeza\";\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/produtos/Limpeza.java b/src/main/java/produtos/Limpeza.java
+--- a/src/main/java/produtos/Limpeza.java	(revision 262d24efced4230f0c2d4e8d6c6920e301a08dab)
++++ b/src/main/java/produtos/Limpeza.java	(date 1741267103601)
+@@ -1,9 +1,10 @@
+ package produtos;
+ 
+-public class Limpeza extends Produtos {
++public class Limpeza extends Produto {
+     //subclasse de Produtos
+-
+-
++    public Limpeza(int id, String nome, int quantidade, double precoCompra, double margemLucro){
++        super(id, nome, quantidade, precoCompra, margemLucro);
++    }
+ 
+     //funcao polimorfica herdada da classe mae Produtos
+     @Override
+Index: src/main/java/produtos/Alimentos.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package produtos;\r\n\r\npublic class Alimentos extends Produtos{\r\n\r\n\r\n\r\n    @Override\r\n    public String getCategoria() {\r\n        return \"Alimentos\";\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/produtos/Alimentos.java b/src/main/java/produtos/Alimentos.java
+--- a/src/main/java/produtos/Alimentos.java	(revision 262d24efced4230f0c2d4e8d6c6920e301a08dab)
++++ b/src/main/java/produtos/Alimentos.java	(date 1741267103616)
+@@ -1,8 +1,10 @@
+ package produtos;
+ 
+-public class Alimentos extends Produtos{
++public class Alimentos extends Produto {
+ 
+-
++    public Alimentos(int id, String nome, int quantidade, double precoCompra, double margemLucro){
++        super(id, nome, quantidade, precoCompra, margemLucro);
++    }
+ 
+     @Override
+     public String getCategoria() {
+Index: src/main/java/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        //classe principal\r\n\r\n        System.out.println(\"---MERCEARIA BERE---\");\r\n\r\n        Scanner sc = new Scanner(System.in);\r\n\r\n\r\n\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/Main.java b/src/main/java/Main.java
+--- a/src/main/java/Main.java	(revision 262d24efced4230f0c2d4e8d6c6920e301a08dab)
++++ b/src/main/java/Main.java	(date 1741267103674)
+@@ -7,7 +7,30 @@
+         System.out.println("---MERCEARIA BERE---");
+ 
+         Scanner sc = new Scanner(System.in);
++        boolean parada = true;
++
+ 
++
++        while(parada){
++            System.out.println("\n=====MENU=====");
++            System.out.println("\n--------------");
++            System.out.println("1- Cadastrar Produtos.");
++            System.out.println("2- Lista de Produtos.");
++            System.out.println("3- Venda.");
++            System.out.println("4- Relatorios.");
++            System.out.println("5- ");
++            System.out.println("6- ");
++            System.out.println("7- Sair.");
++            System.out.println("Escolha uma opcão: ");
++            int opcao = sc.nextInt();
++
++
++            switch (opcao){
++                case 1:
++                    break;
++
++            }
++        }
+ 
+ 
+     }
