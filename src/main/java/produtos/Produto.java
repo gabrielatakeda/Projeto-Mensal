@@ -1,6 +1,6 @@
-package main.java.produtos;
+package produtos;
 
-public abstract class Produtos {
+public abstract class Produto {
     //a classe Produtos sera abstrata, para ser classe mae das outras categorias.
 
     //variaveis com uso protected para que seja acessado somente pelas classes filhas e nada mais
@@ -10,15 +10,19 @@ public abstract class Produtos {
     protected double precoCompra;
 
     //construtor default
-    public Produtos(){
+    public Produto(){
 
     }
 
-    public Produtos(int id, String nomeProduto, int quantidade, double precoCompra){
+    public Produto(int id, String nomeProduto, int quantidade, double precoCompra){
         this.id = id;
         this.nomeProduto = nomeProduto;
         this.quantidade = quantidade;
         this.precoCompra = precoCompra;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
     public abstract String getCategoria();

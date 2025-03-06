@@ -1,25 +1,29 @@
-package main.java.cadastros;
+package cadastros;
 
-import main.java.produtos.Produtos;
+import interfaces.ICadastro;
+import produtos.Produto;
+
 import java.util.ArrayList;
+import java.util.List;
 
-public class Cadastro {
-    private ArrayList<Produtos> produtos = new ArrayList<>();
+public class Cadastro implements ICadastro {
+    private List<Produto> produtos = new ArrayList<>();
 
-    public void cadastrarProduto(Produtos produto){
+
+    //essa classe pegou OBRIGATORIAMENTE os metodos definidos na interface
+    //entao essa classe sera responsavel em cadastrar e remover produtos, alem de trazer uma listagem completa de todos produtos
+    @Override
+    public void addProduto(Produto produto) {
         produtos.add(produto);
-        System.out.println("Produto cadastrado com sucesso!");
     }
 
-    public void listarProdutos(){
-        if(produtos.isEmpty()){
-            System.out.println("Nenhum produto cadastrado.");
-        }
-        else{
-            for(Produtos p : produtos){
-                System.out.println("\nID: " + p.id + "\nNome: " + p.nomeProduto
-                        + "\nCategoria: " + p.getCategoria() + "\nPreço: R$" + p.precoCompra + "\n\n");
-            }
-        }
+    @Override
+    public void rmvProduto(String nomeProduto) {
+        produtos.removeIf(produto -> produto.getNomeProduto().equalsIgnoreCase(nomeProduto));
+    }
+
+    @Override
+    public void listProdutos() {
+
     }
 }

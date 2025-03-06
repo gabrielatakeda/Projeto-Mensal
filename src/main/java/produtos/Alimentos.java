@@ -1,6 +1,8 @@
 package main.java.produtos;
 
-public class Alimentos extends Produtos{
+import produtos.Produto;
+
+public class Alimentos extends Produto {
 
 
 

@@ -1,6 +1,8 @@
 package main.java.produtos;
 
-public class Padaria extends Produtos{
+import produtos.Produto;
+
+public class Padaria extends Produto {
     //subclasse de Produtos
 
 

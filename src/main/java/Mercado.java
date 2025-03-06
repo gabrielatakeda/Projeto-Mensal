@@ -1,13 +1,13 @@
 package main.java;
 import java.util.Scanner;
 
-public class Main {
+public class Mercado {
     public static void main(String[] args) {
         //classe principal
         Scanner sc = new Scanner(System.in);
-        int op = 0;
+        boolean parada = true;
 
-        while (op != 5) {
+        while (parada) {
             System.out.println("---MERCEARIA BERE---");
 
             System.out.println("\n\n==== MENU ====");
@@ -18,7 +18,7 @@ public class Main {
             System.out.println("\n4. Relatório");
             System.out.println("\n5. Sair");
             System.out.println("\nEscolha uma opção: ");
-            op = sc.nextInt();
+            int op = sc.nextInt();
 
             switch (op) {
                 case 1:
@@ -31,9 +31,11 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Encerrando sistema...");
+                    parada = false;
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
+                    break;
             }
 
         }

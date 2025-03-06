@@ -1,6 +1,8 @@
 package main.java.produtos;
 
-public class Limpeza extends Produtos {
+import produtos.Produto;
+
+public class Limpeza extends Produto {
     //subclasse de Produtos
 
 
