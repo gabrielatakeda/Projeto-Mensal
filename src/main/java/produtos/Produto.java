@@ -14,11 +14,20 @@ public abstract class Produto {
 
     }
 
+    //construtor parametrizado
     public Produto(String nomeProduto, int quantidade, double precoCompra, double margemLucro){
         this.nomeProduto = nomeProduto;
         this.quantidade = quantidade;
         this.precoCompra = precoCompra;
         this.precoVenda = calcularPrecoVenda(margemLucro);
+    }
+
+    //construtor de copia
+    public Produto(Produto outro){
+        this.nomeProduto = outro.nomeProduto;
+        this.quantidade = outro.quantidade;
+        this.precoCompra = outro.precoCompra;
+        this.precoVenda = outro.precoVenda;
     }
 
     public String getNomeProduto() {

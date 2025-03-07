@@ -25,12 +25,12 @@ public class Venda extends Caixa{
     public void realizarCompra(){
         if(pag == tipoPagamento.Pix){
 
-            saldo = saldo + valorTotal;
+            saldo += valorTotal;
             valorTotal = 0;
 
         }else if(pag == tipoPagamento.Cartao){
 
-            saldo =  saldo + valorTotal;
+            saldo += valorTotal;
             valorTotal = 0;
 
         }else if(pag == tipoPagamento.Dinheiro){
@@ -42,10 +42,10 @@ public class Venda extends Caixa{
             if (valorPago < valorTotal){
                 System.out.println("o valor que inseriu e insuficiente");
             } else if (valorPago == valorTotal) {
-                saldo = saldo + valorTotal;
+                saldo += valorTotal;
                 valorTotal = 0;
             }else if (valorPago > valorTotal){
-                saldo = saldo + valorTotal;
+                saldo += valorTotal;
                 double troco = valorTotal - valorPago;
                 valorTotal = 0;
                 System.out.println("voce tem "+ troco + " de troco");
