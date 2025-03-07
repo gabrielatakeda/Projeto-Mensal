@@ -37,8 +37,8 @@ public abstract class Produto {
     public void print() {
         System.out.println(nomeProduto +
                             " - Categoria: " + getCategoria() +
-                            " | Compra: R$" + precoCompra +
-                            " | Venda: R$" + precoVenda +
+                            " | Preço de custo: R$" + precoCompra +
+                            " | Preço de venda: R$" + precoVenda +
                             " (" + quantidade + " disponíveis)");
     }
 }

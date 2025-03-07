@@ -15,19 +15,31 @@ public class Cadastro implements ICadastro {
     @Override
     public void addProduto(Produto produto) {
         produtos.add(produto);
+        System.out.println("\nProduto adicionado com sucesso: " + produto.getNomeProduto());
     }
 
     //removeeeeee
     @Override
     public void rmvProduto(String nomeProduto) {
-        produtos.removeIf(produto -> produto.getNomeProduto().equalsIgnoreCase(nomeProduto));
+        boolean acharProduto = produtos.removeIf(produto -> produto.getNomeProduto().equalsIgnoreCase(nomeProduto));
+            if(acharProduto) {
+                System.out.println("\nProduto removido com sucesso: " + nomeProduto);
+            }
+            else {
+                System.out.println("\nProduto não encontrado: " + nomeProduto);
+            }
     }
 
     //essa funcao vai varrer o List com um foreach e usando a funcao que esta dentro do Produto para imprimir cada produto cadastrado
     @Override
     public void listProduto() {
-        for(Produto produto : produtos){
-            produto.print();
+        if(produtos.isEmpty()) {
+            System.out.println("\nNenhum produto cadastrado.");
+        }
+        else {
+            for (Produto produto : produtos) {
+                produto.print();
+            }
         }
     }
 }

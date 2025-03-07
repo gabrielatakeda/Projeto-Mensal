@@ -17,23 +17,26 @@ public class Mercado {
 
 
         while (parada) {
-            System.out.println("---MERCEARIA BERE---");
+            System.out.println("\n--- MERCEARIA BERE ---");
 
-            System.out.println("\n\n==== MENU ====");
-            System.out.println("\n--------------");
-            System.out.println("\n1. Cadastrar Produto");
-            System.out.println("\n2. Remover Produto");
-            System.out.println("\n3. Lista de Produtos");
-            System.out.println("\n4. Venda");
-            System.out.println("\n5. Relatório");
-            System.out.println("\n6. Sair");
+            System.out.println("\n======== MENU ========");
+            System.out.println("\n----------------------");
+            System.out.println("1. Cadastrar Produto");
+            System.out.println("2. Remover Produto");
+            System.out.println("3. Lista de Produtos");
+            System.out.println("4. Venda");
+            System.out.println("5. Relatório");
+            System.out.println("6. Sair");
             System.out.println("\nEscolha uma opção: ");
             int op = sc.nextInt();
 
             switch (op) {
                 case 1:
-                    System.out.println("Cadastro de Produtos: \n");
-                    System.out.println("Preencha as informacoes.\n");
+                    System.out.println("\n\n==== Cadastro de Produtos ====");
+                    System.out.println("\n------------------------------");
+                    System.out.println("Preencha as informações abaixo");
+
+                    sc.nextLine(); //limpar buffer antes do nextLine para não causar erros na exibição
 
                     System.out.println("\nNome do Produto: ");
                     String nomeProduto = sc.nextLine();
@@ -44,14 +47,15 @@ public class Mercado {
                     System.out.println("\nPreço de compra: ");
                     double precoCompra = sc.nextDouble();
 
-                    System.out.println("\nQual a porcentagem de lucro deseja aplicar: ");
+                    System.out.println("\nPorcentagem de lucro que deseja aplicar: ");
                     double margemLucro = sc.nextDouble();
-                    sc.nextLine(); //pula linha
 
-                    System.out.println("Escolha a categoria:\n" +
-                                        "1- Padaria.\n" +
-                                        "2- Limpeza.\n" +
-                                        "3- Alimentos.\n");
+                    sc.nextLine(); //Limpar buffer
+
+                    System.out.println("\nEscolha a categoria:\n" +
+                                        "1. Padaria.\n" +
+                                        "2. Limpeza.\n" +
+                                        "3. Alimentos.\n");
 
                     int categoria = sc.nextInt();
 
@@ -62,16 +66,25 @@ public class Mercado {
                         default -> null;
                     };
 
+                    if(produto != null) {
+                        cadastro.addProduto(produto);
+                    }
+                    else {
+                        System.out.println("Categoria inválida. Produto não cadastrado.");
+                    }
 
                     break;
                 case 2:
-
-
+                    System.out.println("==== Remoção de Produto ====");
+                    System.out.println("\nDigite o nome do produto que deseja remover: ");
+                    sc.nextLine(); //Limpar buffer
+                    String produtoRemover = sc.nextLine();
+                    cadastro.rmvProduto(produtoRemover);
 
                     break;
                 case 3:
-
-
+                    System.out.println("\n==== Lista de Produtos ====\n");
+                    cadastro.listProduto();
 
                     break;
                 case 4:
