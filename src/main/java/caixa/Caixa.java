@@ -1,4 +1,4 @@
-package main.java.caixa;
+package caixa;
 public class Caixa {
 
     protected double saldo;

@@ -1,4 +1,8 @@
-package main.java;
+package mercado;
+import cadastros.Cadastro;
+import produtos.Alimentos;
+import produtos.Produto;
+
 import java.util.Scanner;
 
 public class Mercado {
@@ -6,6 +10,12 @@ public class Mercado {
         //classe principal
         Scanner sc = new Scanner(System.in);
         boolean parada = true;
+
+        Cadastro lista = new Cadastro();
+
+        Produto banana = new Alimentos("banana",10000,1,100);
+
+        lista.addProduto(banana);
 
         while (parada) {
             System.out.println("---MERCEARIA BERE---");
@@ -24,8 +34,14 @@ public class Mercado {
                 case 1:
                     break;
                 case 2:
+
+
+
                     break;
                 case 3:
+
+
+
                     break;
                 case 4:
                     break;
