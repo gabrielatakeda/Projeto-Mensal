@@ -23,11 +23,9 @@ public class Cadastro implements ICadastro {
         produtos.removeIf(produto -> produto.getNomeProduto().equalsIgnoreCase(nomeProduto));
     }
 
-
-
     //essa funcao vai varrer o List com um foreach e usando a funcao que esta dentro do Produto para imprimir cada produto cadastrado
     @Override
-    public void listProdutos() {
+    public void listProduto() {
         for(Produto produto : produtos){
             produto.print();
         }

@@ -1,11 +1,13 @@
 package caixa;
+
 public class Caixa {
 
     protected double saldo;
 
     //função para adicionar mais valor no caixa
     public void depositar(int valor){
-        saldo = saldo + valor;
+        saldo += valor;
+        System.out.println("Deposito realizado de: " + valor);
     }
 
     //construtores getters e setters

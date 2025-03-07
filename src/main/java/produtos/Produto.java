@@ -25,12 +25,15 @@ public abstract class Produto {
         return nomeProduto;
     }
 
+    //vai puxar a categoria de cada produto
     public abstract String getCategoria();
 
+    //calcula o preco de venda de cordo com a margem de lucro desejada
     public double calcularPrecoVenda(double margemLucro) {
         return precoCompra + (precoCompra * margemLucro / 100);
     }
 
+    //vai printar as informacoes de cada produto
     public void print() {
         System.out.println(nomeProduto +
                             " - Categoria: " + getCategoria() +
