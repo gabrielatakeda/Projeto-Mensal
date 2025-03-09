@@ -2,14 +2,9 @@ package cadastros;
 
 import interfaces.ICadastro;
 import produtos.Produto;
-import cadastros.Cadastro;
-import produtos.Alimentos;
-import produtos.Limpeza;
-import produtos.Padaria;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Cadastro implements ICadastro {
     private List<Produto> produtos = new ArrayList<>();
@@ -50,72 +45,7 @@ public class Cadastro implements ICadastro {
 
     @Override
     public void modificarProduto(String nomeProduto) {
-        boolean acharProduto = false;
-
-        for (Produto produto : produtos) {
-            if (produto.getNomeProduto().equalsIgnoreCase(nomeProduto)) {
-                acharProduto = true;
-
-                Scanner sc = new Scanner(System.in);
-                System.out.println("\nProduto escolhido: " + produto.getNomeProduto());
-                System.out.println("\n---------------------------------------------");
-                System.out.println("1. Nome do produto");
-                System.out.println("2. Quantidade do produto");
-                System.out.println("3. Preço do produto");
-                System.out.println("\nEscolha o que deseja modificar: ");
-
-                int op = sc.nextInt();
-                sc.nextLine();
-
-                switch (op) {
-                    case 1: {
-                        System.out.print("\nDigite o novo nome do produto: ");
-                        String novoNome = sc.nextLine();
-                        if (!novoNome.isEmpty()) {
-                            produto.setNomeProduto(novoNome);;
-                            System.out.println("\nNome do produto atualizado com sucesso!");
-                        }
-                        else {
-                            System.out.println("\nO nome do produto não foi alterado.");
-                        }
-
-                        break;
-                    }
-                    case 2: // Modificar a quantidade do produto
-                        System.out.print("\nDigite a nova quantidade do produto: ");
-                        int novaQuantidade = sc.nextInt();
-                        if (novaQuantidade >= 0) {
-                            produto.setQuantidade(novaQuantidade);
-                            System.out.println("\nQuantidade do produto atualizada com sucesso!");
-                        } else {
-                            System.out.println("\nA quantidade não pode ser negativa.");
-                        }
-
-                        break;
-                    case 3: // Modificar o preço do produto
-                        System.out.print("\nDigite o novo preço de compra do produto: ");
-                        double novoPrecoCompra = sc.nextDouble();
-                        if (novoPrecoCompra >= 0) {
-                            produto.setPrecoCompra(novoPrecoCompra);
-
-                            System.out.print("Digite a margem de lucro (em %): ");
-                            double novoLucro = sc.nextDouble();
-                            produto.setPrecoVenda(produto.calcularPrecoVenda(novoLucro));
-                            System.out.println("\nPreço do produto atualizado com sucesso!");
-                        }
-                        else {
-                            System.out.println("\nO preço não pode ser negativo.");
-                        }
-
-                        break;
-                    default:
-                        System.out.println("\nOpção inválida. Nenhuma modificação realizada.");
-                }
-            }
-
-        }
-        if (!acharProduto) {
-            System.out.println("\nProduto não encontrado ou não existe.");
-        }
+        boolean acharProduto = produtos.(produto -> produto.getNomeProduto().equalsIgnoreCase(nomeProduto));
+        aaaaaaaaaaaaaaaaaaaaaaaaa
     }
 }
