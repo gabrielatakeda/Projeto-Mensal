@@ -1,11 +1,18 @@
 package caixa;
 
+import produtos.Produto;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Venda extends Caixa{
     //classe venda sera sera extenção de Caixa para fazer interações com seu valor
 
     Scanner sc = new Scanner(System.in);
+
+    private List<Produto> produtoVendido;
+    private tipoPagamento pagamento;
+    private double total;
 
     private double valorTotal;
 

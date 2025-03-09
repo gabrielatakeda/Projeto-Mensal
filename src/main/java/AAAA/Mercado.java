@@ -6,6 +6,8 @@ import produtos.Limpeza;
 import produtos.Padaria;
 import produtos.Produto;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Mercado {
@@ -110,6 +112,13 @@ public class Mercado {
                         break;
                     case 5:
                         System.out.println("=================== Vendas ===================");
+                        cadastro.listProduto();
+                        List<Produto> produtoVendido = new ArrayList<>();
+                        boolean comprando = true;
+
+                        while (comprando){
+                            System.out.println();
+                        }
                         break;
                     case 6:
                         System.out.println("================= Relatórios =================");
