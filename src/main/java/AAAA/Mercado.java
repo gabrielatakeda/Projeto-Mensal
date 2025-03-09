@@ -104,10 +104,10 @@ public class Mercado {
 
                         break;
                     case 5:
-                        System.out.println("============= Vendas =============");
+                        System.out.println("=================== Vendas ===================");
                         break;
                     case 6:
-                        System.out.println("============= Relatórios =============");
+                        System.out.println("================= Relatórios =================");
                         break;
                     case 7:
                         System.out.println("Encerrando sistema...");
