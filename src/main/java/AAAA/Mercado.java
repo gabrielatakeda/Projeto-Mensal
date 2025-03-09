@@ -18,10 +18,10 @@ public class Mercado {
 
         while (parada) {
             try{
-                System.out.println("\n--- MERCEARIA BERE ---");
+                System.out.println("\n-------------- MERCEARIA BERE --------------");
 
-                System.out.println("\n======== MENU ========");
-                System.out.println("\n----------------------");
+                System.out.println("\n=================== MENU ===================");
+                System.out.println("\n--------------------------------------------");
                 System.out.println("1. Cadastrar Produto");
                 System.out.println("2. Remover Produto");
                 System.out.println("3. Lista de Produtos");
@@ -35,8 +35,8 @@ public class Mercado {
                 switch (op) {
                     case 1:
                         try {
-                            System.out.println("\n\n==== Cadastro de Produtos ====");
-                            System.out.println("\n------------------------------");
+                            System.out.println("\n=========== Cadastro de Produtos ===========");
+                            System.out.println("\n--------------------------------------------");
                             System.out.println("Preencha as informações abaixo");
 
                             sc.nextLine(); //limpar buffer antes do nextLine para não causar erros na exibição
@@ -55,10 +55,9 @@ public class Mercado {
 
                             sc.nextLine(); //Limpar buffer
 
-                            System.out.println("\nEscolha a categoria:\n" +
-                                    "1. Padaria.\n" +
-                                    "2. Limpeza.\n" +
-                                    "3. Alimentos.\n");
+                            System.out.println("\nCategorias disponíveis");
+                            System.out.println("1. Padaria.\n" + "2. Limpeza.\n" + "3. Alimentos.\n");
+                            System.out.println("Escolha a categoria: ");
 
                             int categoria = sc.nextInt();
 
@@ -81,26 +80,34 @@ public class Mercado {
 
                         break;
                     case 2:
-                        System.out.println("==== Remoção de Produto ====");
-                        System.out.println("\nDigite o nome do produto que deseja remover: ");
+                        System.out.println("\n============= Remoção de Produto =============");
+                        System.out.println("\n----------------------------------------------");
+                        System.out.println("Digite o nome do produto que deseja remover: ");
                         sc.nextLine(); //Limpar buffer
                         String produtoRemover = sc.nextLine();
                         cadastro.rmvProduto(produtoRemover);
 
                         break;
                     case 3:
-                        System.out.println("\n==== Lista de Produtos ====\n");
+                        System.out.println("\n============= Lista de Produtos =============");
+                        System.out.println("\n---------------------------------------------");
                         cadastro.listProduto();
 
                         break;
                     case 4:
-                        System.out.println("==== Modificar Produto ====");
+                        System.out.println("\n============= Modificar Produto =============");
+                        System.out.println("\n---------------------------------------------");
+                        System.out.print("Digite o nome do produto que deseja modificar: ");
+                        sc.nextLine(); // limpa buffer
+                        String produtoModificar = sc.nextLine();
+                        cadastro.modificarProduto(produtoModificar);
+
                         break;
                     case 5:
-                        System.out.println("==== Vendas ====");
+                        System.out.println("============= Vendas =============");
                         break;
                     case 6:
-                        System.out.println("==== Relatórios ====");
+                        System.out.println("============= Relatórios =============");
                         break;
                     case 7:
                         System.out.println("Encerrando sistema...");

@@ -22,6 +22,34 @@ public abstract class Produto {
         this.precoVenda = calcularPrecoVenda(margemLucro);
     }
 
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public double getPrecoCompra() {
+        return precoCompra;
+    }
+
+    public void setPrecoCompra(double precoCompra) {
+        this.precoCompra = precoCompra;
+    }
+
+    public double getPrecoVenda() {
+        return precoVenda;
+    }
+
+    public void setPrecoVenda(double precoVenda) {
+        this.precoVenda = precoVenda;
+    }
+
     //construtor de copia
     public Produto(Produto outro){
         this.nomeProduto = outro.nomeProduto;
@@ -41,10 +69,6 @@ public abstract class Produto {
     public double calcularPrecoVenda(double margemLucro) {
         return precoCompra + (precoCompra * margemLucro / 100);
     }
-
-    public Produto buscarProduto
-
-
 
     //vai printar as informacoes de cada produto
     public void print() {
