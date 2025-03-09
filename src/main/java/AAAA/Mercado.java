@@ -16,6 +16,10 @@ public class Mercado {
         boolean parada = true;
 
 
+        //testando se explodiu
+        //TESTANDOO DENOVOOOOO
+
+
         while (parada) {
             try{
                 System.out.println("\n-------------- MERCEARIA BERE --------------");
