@@ -18,6 +18,7 @@ public class Mercado {
 
         //testando se explodiu
         //TESTANDOO DENOVOOOOO
+        //teste
 
 
         while (parada) {
