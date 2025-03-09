@@ -42,6 +42,10 @@ public abstract class Produto {
         return precoCompra + (precoCompra * margemLucro / 100);
     }
 
+    public Produto buscarProduto
+
+
+
     //vai printar as informacoes de cada produto
     public void print() {
         System.out.println(nomeProduto +

@@ -42,4 +42,9 @@ public class Cadastro implements ICadastro {
             }
         }
     }
+
+    @Override
+    public void modificarProduto(String nomeProduto) {
+        boolean acharProduto = produtos.(produto -> produto.getNomeProduto().equalsIgnoreCase(nomeProduto));
+    }
 }

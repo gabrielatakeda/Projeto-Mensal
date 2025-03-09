@@ -25,9 +25,10 @@ public class Mercado {
                 System.out.println("1. Cadastrar Produto");
                 System.out.println("2. Remover Produto");
                 System.out.println("3. Lista de Produtos");
-                System.out.println("4. Venda");
-                System.out.println("5. Relatório");
-                System.out.println("6. Sair");
+                System.out.println("4. Modificar Produto");
+                System.out.println("5. Venda");
+                System.out.println("6. Relatório");
+                System.out.println("7. Sair");
                 System.out.println("\nEscolha uma opção: ");
                 int op = sc.nextInt();
 
@@ -93,12 +94,15 @@ public class Mercado {
 
                         break;
                     case 4:
-                        System.out.println("==== Vendas ====");
+                        System.out.println("==== Modificar Produto ====");
                         break;
                     case 5:
-                        System.out.println("==== Relatórios ====");
+                        System.out.println("==== Vendas ====");
                         break;
                     case 6:
+                        System.out.println("==== Relatórios ====");
+                        break;
+                    case 7:
                         System.out.println("Encerrando sistema...");
                         parada = false;
                         break;
