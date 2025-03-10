@@ -2,16 +2,12 @@ package cadastros;
 
 import interfaces.ICadastro;
 import produtos.Produto;
-import cadastros.Cadastro;
-import produtos.Alimentos;
-import produtos.Limpeza;
-import produtos.Padaria;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Cadastro implements ICadastro {
+public class Cadastro implements ICadastro{
     private List<Produto> produtos = new ArrayList<>();
 
 
@@ -117,5 +113,15 @@ public class Cadastro implements ICadastro {
         if (!acharProduto) {
             System.out.println("\nProduto não encontrado ou não existe.");
         }
+    }
+
+    @Override
+    public Produto buscarProduto(String nome) {
+        for (Produto produto : produtos) {
+            if (produto.getNomeProduto().equalsIgnoreCase(nome)) {
+                return produto;
+            }
+        }
+        return null;
     }
 }

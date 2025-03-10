@@ -7,4 +7,6 @@ public interface ICadastro {
     void rmvProduto(String nomeProduto);
     void listProduto();
     void modificarProduto(String nomeProduto);
+
+    Produto buscarProduto(String nomeProduto);
 }

@@ -22,6 +22,40 @@ public abstract class Produto {
         this.precoVenda = calcularPrecoVenda(margemLucro);
     }
 
+    //construtor de copia
+    public Produto(Produto outro){
+        this.nomeProduto = outro.nomeProduto;
+        this.quantidade = outro.quantidade;
+        this.precoCompra = outro.precoCompra;
+        this.precoVenda = outro.precoVenda;
+    }
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    //vai puxar a categoria de cada produto
+
+    public abstract String getCategoria();
+    //calcula o preco de venda de cordo com a margem de lucro desejada
+
+    public double calcularPrecoVenda(double margemLucro) {
+        return precoCompra + (precoCompra * margemLucro / 100);
+    }
+    //vai printar as informacoes de cada produto
+
+    public void reduzirQuantidade(int quantidadeVendida) {
+        this.quantidade -= quantidadeVendida;
+    }
+
+    public void print() {
+        System.out.println(nomeProduto +
+                            " - Categoria: " + getCategoria() +
+                            " | Preço de custo: R$" + precoCompra +
+                            " | Preço de venda: R$" + precoVenda +
+                            " (" + quantidade + " disponíveis)");
+        System.out.println("==================================================");
+    }
+
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
@@ -48,34 +82,5 @@ public abstract class Produto {
 
     public void setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
-    }
-
-    //construtor de copia
-    public Produto(Produto outro){
-        this.nomeProduto = outro.nomeProduto;
-        this.quantidade = outro.quantidade;
-        this.precoCompra = outro.precoCompra;
-        this.precoVenda = outro.precoVenda;
-    }
-
-    public String getNomeProduto() {
-        return nomeProduto;
-    }
-
-    //vai puxar a categoria de cada produto
-    public abstract String getCategoria();
-
-    //calcula o preco de venda de cordo com a margem de lucro desejada
-    public double calcularPrecoVenda(double margemLucro) {
-        return precoCompra + (precoCompra * margemLucro / 100);
-    }
-
-    //vai printar as informacoes de cada produto
-    public void print() {
-        System.out.println(nomeProduto +
-                            " - Categoria: " + getCategoria() +
-                            " | Preço de custo: R$" + precoCompra +
-                            " | Preço de venda: R$" + precoVenda +
-                            " (" + quantidade + " disponíveis)");
     }
 }

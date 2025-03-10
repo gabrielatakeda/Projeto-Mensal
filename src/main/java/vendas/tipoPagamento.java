@@ -1,7 +1,7 @@
-package caixa;
+package vendas;
 
 public enum tipoPagamento {
-    Cartao(1),Dinheiro(2),Pix(3);
+    CARTAO(1),DINHEIRO(2),PIX(3);
 
     public int valor;
     tipoPagamento(int valor){

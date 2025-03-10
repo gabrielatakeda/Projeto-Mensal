@@ -1,6 +1,7 @@
 package AAAA;
 
 import cadastros.Cadastro;
+import vendas.Venda;
 import produtos.Alimentos;
 import produtos.Limpeza;
 import produtos.Padaria;
@@ -34,8 +35,7 @@ public class Mercado {
                 System.out.println("3. Lista de Produtos");
                 System.out.println("4. Modificar Produto");
                 System.out.println("5. Venda");
-                System.out.println("6. Relatório");
-                System.out.println("7. Sair");
+                System.out.println("6. Sair");
                 System.out.println("\nEscolha uma opção: ");
                 int op = sc.nextInt();
 
@@ -88,6 +88,7 @@ public class Mercado {
                         break;
                     case 2:
                         System.out.println("\n============= Remoção de Produto =============");
+                        cadastro.listProduto();
                         System.out.println("\n----------------------------------------------");
                         System.out.println("Digite o nome do produto que deseja remover: ");
                         sc.nextLine(); //Limpar buffer
@@ -97,6 +98,7 @@ public class Mercado {
                         break;
                     case 3:
                         System.out.println("\n============= Lista de Produtos =============");
+                        cadastro.listProduto();
                         System.out.println("\n---------------------------------------------");
                         cadastro.listProduto();
 
@@ -111,19 +113,13 @@ public class Mercado {
 
                         break;
                     case 5:
+                        Venda venda = new Venda();
+                        List<Produto> produtoVendido = new ArrayList<>();
                         System.out.println("=================== Vendas ===================");
                         cadastro.listProduto();
-                        List<Produto> produtoVendido = new ArrayList<>();
-                        boolean comprando = true;
-
-                        while (comprando){
-                            System.out.println();
-                        }
+                        venda.addVenda(cadastro, produtoVendido);
                         break;
                     case 6:
-                        System.out.println("================= Relatórios =================");
-                        break;
-                    case 7:
                         System.out.println("Encerrando sistema...");
                         parada = false;
                         break;
